@@ -13,4 +13,15 @@ describe AchievementsController do
             expect(assigns(:achievement)).to be_a_new(Achievement)
         end
     end
+
+    describe "GET show" do
+        let(:achievement) { FactoryBot.create(:public_achievement) }
+
+        it "renders :show template" do
+            get :show, params: { id: achievement.id }
+            expect(response).to render_template(:show)
+        end
+
+        it "assigns requested achievement to @achievement"
+    end
 end
