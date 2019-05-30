@@ -2,6 +2,16 @@ require 'rails_helper'
 require 'spec_helper'
 
 describe AchievementsController do
+
+    describe "GET index" do
+        it "renders :index template" do
+            get :index
+            expect(response).to render_template(:index)
+        end
+
+        it "assigns only public achievements to template"
+    end
+
     describe "GET new" do
         it "renders :new template" do
             get :new
