@@ -31,6 +31,24 @@ describe AchievementsController do
         end
     end
 
+    describe "PUT update" do
+        let(:achievement) { FactoryBot.create(:public_achievement)}
+
+        context "valid data" do
+            let(:valid_data) { FactoryBot.attributes_for(:public_achievement, title: "New Title") }
+
+            it "redirects to achievements#show" do
+                put :update, params: { id: achievement, achievement: valid_data }
+                expect(response).to redirect_to(achievement)
+            end
+
+            it "updates achievement in the database"
+        end
+
+        context "invalid data" do
+        end
+    end
+
     describe "GET new" do
         it "renders :new template" do
             get :new
