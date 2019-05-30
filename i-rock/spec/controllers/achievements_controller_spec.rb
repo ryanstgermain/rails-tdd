@@ -9,7 +9,12 @@ describe AchievementsController do
             expect(response).to render_template(:index)
         end
 
-        it "assigns only public achievements to template"
+        it "assigns only public achievements to template" do
+            public_achievement = FactoryBot.create(:public_achievement)
+            private_achievement = FactoryBot.create(:private_achievement)
+            get :index
+            expect(assigns(:achievements)).to match_array([public_achievement])
+        end
     end
 
     describe "GET new" do
