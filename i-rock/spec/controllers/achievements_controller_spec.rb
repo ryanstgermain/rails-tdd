@@ -122,4 +122,18 @@ describe AchievementsController do
             end
         end
     end
+
+    describe "DELETE destroy" do
+        let(:achievement) { FactoryBot.create(:public_achievement) }
+
+        it "redirects to achievements#index" do
+            delete :destroy, params: {id: achievement }
+            expect(response).to redirect_to(achievements_path)
+        end
+
+        it "deletes achievement from database" do
+            delete :destroy, params: {id: achievement }
+            expect(Achievement.exists?(achievement.id)).to be_falsy
+        end
+    end
 end
