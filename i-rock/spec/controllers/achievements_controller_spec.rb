@@ -17,6 +17,20 @@ describe AchievementsController do
         end
     end
 
+    describe "GET edit" do
+        let(:achievement) { FactoryBot.create(:public_achievement)}
+
+        it "renders :edit template" do
+            get :edit, params: { id: achievement }
+            expect(response).to render_template(:edit)
+        end
+
+        it "assigns the requested achievement to template" do
+            get :edit, params: { id: achievement }
+            expect(assigns(:achievement)).to eq(achievement)
+        end
+    end
+
     describe "GET new" do
         it "renders :new template" do
             get :new
