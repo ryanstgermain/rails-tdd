@@ -11,12 +11,8 @@ class AchievementsController < ApplicationController
     end
 
     def create
-        @achievement = Achievement.new(achievement_params)
-        if @achievement.save
-            redirect_to achievement_url(@achievement), notice: 'Achievement has been created'
-        else
-            render :new
-        end
+        service = CreateAchievement.new(params[:achievement], current_user)
+        service.create
     end
 
     def edit
