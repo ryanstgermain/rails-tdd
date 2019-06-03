@@ -23,6 +23,9 @@ describe Character do
             expect(character.climb(difficulty: 15)).to be_truthy
         end
 
-        it 'fails climbing check when roll + strength is less than difficulty'
+        it 'fails climbing check when roll + strength is less than difficulty' do
+            allow(die).to receive(:roll) { 5 }
+            expect(character.climb(difficulty: 15)).to be_falsy
+        end
     end
 end
