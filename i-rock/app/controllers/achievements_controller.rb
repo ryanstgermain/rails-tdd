@@ -3,7 +3,7 @@ class AchievementsController < ApplicationController
     before_action :owners_only, only: [ :edit, :update, :destroy ]
 
     def index
-        @achievements = Achievement.public_access
+        @achievements = Achievement.get_public_achievements
     end
 
     def new
