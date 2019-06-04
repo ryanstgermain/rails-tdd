@@ -17,6 +17,7 @@ gem 'rails-controller-testing'
 gem 'devise'
 
 gem 'carrierwave'
+gem 'active_model_serializers', '0.10.0.rc2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
